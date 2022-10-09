@@ -1,0 +1,39 @@
+<?php 
+include 'src/isiKartu.php'; 
+include 'img/counter.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | CodingAhay</title>
+    <link rel="stylesheet" type="text/css" href="style.css?d=<?php echo time(); ?>">
+    <link href="http://fonts.cdnfonts.com/css/nsai" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/muge" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <?php include 'src/header.php'; ?>
+    <div class="backgroundImg">
+        <div class="container my-3">
+            <h2 class="text-center mt-md-4">Mau belajar apa?</h2>
+            <div class="row">
+                <?php for ($i=0; $i < iterator_count($count) - 1; $i++) : ?>
+                <div class="col-md-3 justify-content-center">
+                    <div class="card mt-4 mb-4 w-75 mx-auto text-light bg-dark bg-gradient">
+                        <img src="img/<?php echo $i ?>.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-3"><?= $lang[$i]; ?></h5>
+                            <a href="#" class="d-flex btn btn-primary justify-content-center">Gaskeun..</a>
+                        </div>
+                    </div>
+                </div>
+                <?php endfor; ?>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
