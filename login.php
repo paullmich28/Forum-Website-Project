@@ -53,7 +53,7 @@
                             </div>
                             <p class="text-center mt-3">
                                 Belum punya akun?<br />
-                                <small><a href="daftar.php">Daftar Sekarang</a></small>
+                                <small><a href="daftar.php">Daftar Sekarang!</a></small>
                             </p>
                         </form>
                     </div>
