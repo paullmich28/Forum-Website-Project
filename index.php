@@ -19,20 +19,36 @@ include 'img/counter.php';
     <?php include 'src/header.php'; ?>
     <div class="backgroundImg">
         <div class="container my-3">
-            <h2 class="text-center mt-md-4">Mau belajar apa?</h2>
+            <!-- <h2 class="text-center mt-md-4">Mau belajar apa?</h2>
             <div class="row">
-                <?php for ($i=0; $i < iterator_count($count) - 1; $i++) : ?>
+                <?php /* for ($i=0; $i < iterator_count($count) - 1; $i++) : */ ?>
                 <div class="col-md-3 justify-content-center">
                     <div class="card mt-4 mb-4 w-75 mx-auto text-light bg-dark bg-gradient">
-                        <img src="img/<?php echo $i ?>.png" class="card-img-top" alt="...">
+                        <img src="img/<?php /* echo $i */ ?>.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center mb-3"><?= $lang[$i]; ?></h5>
                             <a href="#" class="d-flex btn btn-primary justify-content-center">Gaskeun..</a>
                         </div>
                     </div>
                 </div>
-                <?php endfor; ?>
+                <?php /* endfor; */ ?>
+            </div> -->
+            <h2 class="text-center mt-5 fw-bold">Halo! Selamat datang di CodingAhay!</h2><br />
+            <div class="row mt-4">
+                <div class="col-sm-4 ms-auto">
+                    <p>
+                        <small>CodingAhay adalah sebuah forum dimana para programmer dari seluruh Indonesia berkumpul.<br /><br />
+                        Ayo kita semua belajar bersama di <span><a href="#">CodingAhay!</a></span><br />
+                        Ingin menjadi bagian dari kami? <br /><span><a class="btn btn-primary mt-2" href="daftar.php" role="button">Sign Up</a></span><br /><br />
+                        Sudah menjadi bagian dari kami?<br />
+                        <span><a class="btn btn-success mt-2" href="login.php" role="button">Login</a></span></small>
+                    </p>
+                </div>
+                <div class="col-sm-5">
+                    <img src="ilustrations/ilustrations.svg" alt="ilustrasi" class="rounded float-start mt-4 w-75" />
+                </div>
             </div>
+            
         </div>
     </div>
 </body>
