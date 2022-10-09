@@ -14,6 +14,7 @@ include 'img/counter.php';
     <link href="http://fonts.cdnfonts.com/css/nsai" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/muge" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <body>
     <?php include 'src/header.php'; ?>
@@ -48,8 +49,12 @@ include 'img/counter.php';
                     <img src="ilustrations/ilustrations.svg" alt="ilustrasi" class="rounded float-start mt-4 w-75" />
                 </div>
             </div>
-            
         </div>
     </div>
+    <script>
+        $(function(){
+            $('#about').removeClass('active')
+        })
+    </script>
 </body>
 </html>

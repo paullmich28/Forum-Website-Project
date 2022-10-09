@@ -9,11 +9,16 @@
     <link href="http://fonts.cdnfonts.com/css/nsai" rel="stylesheet">
     <link href="http://fonts.cdnfonts.com/css/muge" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-</head>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <body>
-    <?php include 'src/headerAbout.php'; ?>
+    <?php include 'src/header.php'; ?>
     <div class="container profile mt-3">
         <h1 class="text-center">Member Kami</h1><hr />
     </div>
+    <script>
+        $(function(){
+            $('#about').addClass('active')
+        })
+    </script>
 </body>
 </html>

@@ -2,14 +2,14 @@
 echo
 '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="index.php" id="main">
             <img src="profil/profile_temp.png" alt="Logo" width="40" height="auto" class="d-inline-block align-text-bottom">
             <span class="judul">CodingAhay</span>
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
                 <li class="nav-item ms-2">
-                    <a class="nav-link" href="about.php">About</a>
+                    <a class="nav-link" href="about.php" id="about">About</a>
                 </li>
             </ul>
             <ul class="navbar-nav mb-lg-0">
