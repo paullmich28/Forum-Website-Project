@@ -24,8 +24,14 @@ include 'img/counter.php';
                 </li>
             </ul>
             <ul class="navbar-nav mb-lg-0">
-                <a class="btn btn-outline-success mx-3" href="login.php" role="button">Login</a>
-                <a class="btn btn-outline-primary mx-3" href="daftar.php" role="button">Sign Up</a>
+                <a class="btn btn-outline-success mx-3" href="login.php" role="button">
+                    <i class="bx bx-log-in mx-auto"></i>
+                    Login
+                </a>
+                <a class="btn btn-outline-primary mx-3" href="daftar.php" role="button">
+                    <i class='bx bx-user-plus'></i>
+                    Sign Up
+                </a>
                 <!--<form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
