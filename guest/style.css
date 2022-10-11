@@ -63,6 +63,7 @@ body{
     margin: 0 5px;
     list-style: none;
     line-height: 50px;
+    margin-top: 0.5em;
 }
 
 .sidebar ul li input{
@@ -170,3 +171,4 @@ body{
     font-size: 25px;
     border-radius: 12px;
 }
+

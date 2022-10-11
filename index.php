@@ -10,6 +10,7 @@ include 'img/counter.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | CodingAhay</title>
+    <link rel="stylesheet" type="text/css" href="style.css?v=<?php echo time(); ?>">
 <?php include 'src/header.php'; ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -40,6 +41,41 @@ include 'img/counter.php';
         </div>
     </div>
 </nav>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active c-item">
+            <img src="homeimage/1.jpg" class="d-block w-100 c-img" alt="...">
+            <div class="carousel-caption top-0 mt-5 d-none d-md-block">
+                <h2 class="mt-5 font-weight-bold">Selamat datang di CodingAhay!</h2>
+            </div>
+        </div>
+        <div class="carousel-item c-item">
+            <img src="homeimage/2.jpg" class="d-block w-100 c-img" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Tertarik untuk Belajar Coding Bareng?</h2>
+            </div>
+        </div>
+        <div class="carousel-item c-item">
+            <img src="homeimage/3.jpg" class="d-block w-100 c-img" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Ya CodingAhay solusinya!</h2>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 <div class="backgroundImg">
     <div class="container my-3">
         <!-- <h2 class="text-center mt-md-4">Mau belajar apa?</h2>
@@ -56,7 +92,6 @@ include 'img/counter.php';
             </div>
             <?php /* endfor; */ ?>
         </div> -->
-        <h2 class="text-center mt-5 fw-bold">Halo! Selamat datang di CodingAhay!</h2><br />
         <div class="row mt-4">
             <div class="col-sm-4 ms-auto">
                 <p>
