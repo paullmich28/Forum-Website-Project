@@ -33,13 +33,3 @@ body{
     background-color: white;
     border-radius: 1em;
 }
-
-.c-item{
-    height: 400px;
-}
-
-.c-img{
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.6);
-}

@@ -41,41 +41,6 @@ include 'img/counter.php';
         </div>
     </div>
 </nav>
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active c-item">
-            <img src="homeimage/1.jpg" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption top-0 mt-5 d-none d-md-block">
-                <h2 class="mt-5 font-weight-bold">Selamat datang di CodingAhay!</h2>
-            </div>
-        </div>
-        <div class="carousel-item c-item">
-            <img src="homeimage/2.jpg" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h2>Tertarik untuk Belajar Coding Bareng?</h2>
-            </div>
-        </div>
-        <div class="carousel-item c-item">
-            <img src="homeimage/3.jpg" class="d-block w-100 c-img" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h2>Ya CodingAhay solusinya!</h2>
-            </div>
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 <div class="backgroundImg">
     <div class="container my-3">
         <!-- <h2 class="text-center mt-md-4">Mau belajar apa?</h2>
@@ -96,7 +61,7 @@ include 'img/counter.php';
             <div class="col-sm-4 ms-auto">
                 <p>
                     <small>CodingAhay adalah sebuah forum dimana para programmer dari seluruh Indonesia berkumpul.<br /><br />
-                    Ayo kita semua belajar bersama di <span><a href="guest/index.php">CodingAhay!</a></span><br />
+                    Ayo kita semua belajar bersama di <span><a href="guest/index.php">CodingAhay!</a></span><br /><br />
                     Ingin menjadi bagian dari kami? <br /><span><a class="btn btn-primary mt-2" href="daftar.php" role="button">Sign Up</a></span><br /><br />
                     Sudah menjadi bagian dari kami?<br />
                     <span><a class="btn btn-success mt-2" href="login.php" role="button">Login</a></span></small>
