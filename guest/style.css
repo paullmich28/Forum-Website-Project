@@ -18,7 +18,7 @@ body{
     top: 0;
     left: 0;
     height: 100%;
-    width: 75px;
+    width: 80px;
     position: fixed;
     padding: 6px 14px;
     transition: all 0.5s ease;
@@ -93,12 +93,12 @@ body{
     outline: none;
     border: none;
     background: rgb(71, 70, 70);
-    padding-left: 50px;
+    padding-left: 55px;
     font-size: 18px;
     color: white;
 }
 
-.sidebar ul li a{
+.sidebar ul li .list{
     display: flex;
     color: white;
     align-items: center;
@@ -136,7 +136,7 @@ body{
     pointer-events: auto;
 }
 
-.sidebar ul li a:hover{
+.sidebar ul li .list:hover{
     color: black;
     background: white;
 }
@@ -171,12 +171,21 @@ body{
     display: flex;
     align-items: center;
     margin-left: 0.5em;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     white-space: nowrap;
 }
 
+.profile_detail .name{
+    opacity: 0;
+}
+
 .sidebar.active .profile .profile_detail{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar.active .profile .profile_detail .name{
     opacity: 1;
     pointer-events: auto;
 }
@@ -196,37 +205,21 @@ body{
     z-index: 100;
 }
 
-#login{
-    position: absolute;
-    bottom: 5px;
-    left: 5%;
-    transform: translateX(5%);
-    line-height: 50px;
-    min-width: 50px;
-    font-size: 25px;
-    border-radius: 12px;
-}
-
-#register{
-    position: absolute;
-    bottom: 5px;
-    left: 35%;
-    transform: translateX(35%);
-    line-height: 50px;
-    min-width: 50px;
-    font-size: 25px;
-    border-radius: 12px;
-}
-
 .home_content{
     position: absolute;
     height: 100%;
-    width: calc(100% - 300px);
-    left: 300px;
+    width: calc(100% - 78px);
+    left: 78px;
     margin: 1em;
+    transition: all 0.5s ease;
 }
 
 .text{
     font-size: 25px;
     font-weight: 500;
+}
+
+.sidebar.active ~ .home_content{
+    width: calc(100%-300px);
+    left: 300px;   
 }
