@@ -22,6 +22,11 @@
     z-index: 2;
 }
 
+.carousel-caption .buttons{
+    padding: 0.5em;
+    font-size: 20px;
+}
+
 .carousel-caption h5{
     font-size: 45px;
     text-transform: uppercase;
@@ -52,7 +57,7 @@
 
 .navbar-dark .navbar-brand:focus,
 .navbar-dark .navbar-brand:hover{
-    color: #000;
+    color: white;
 }
 
 .navbar-dark .navbar-nav .navbar-link{
@@ -63,21 +68,28 @@
     height: 100vh;
 }
 
+.section-padding{
+    padding: 100px 0;
+}
 
-@media only screen and (max-width: 767px){
-    .navbar-nav{
-        text-align: center;
-    }
+.scrolled{
+    background-color: rgba(52, 58, 64, 0.8);
+    transition: all 0.5s ease;
+}
 
-    .carousel-caption{
-        bottom: 125px;
-    }
 
+@media (min-width: 576px) and (max-width: 992px){
     .carousel-caption h5{
-        font-size: 17px;
+        font-size: 40px;
     }
 
-    .carousel-caption a{
-        padding: 10px 15px;
+    .carousel-caption p{
+        font-size: 25px;
+        width: 100%;
     }
+
+    .navbar-nav a{
+        width: 50%;
+    }
+
 }
