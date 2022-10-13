@@ -6,30 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | CodingAhay</title>
 <?php include 'src/header.php'; ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <div class="container">
         <a class="navbar-brand" href="index.php" id="main">
-            <img src="profil/profile_temp.png" alt="Logo" width="40" height="auto" class="d-inline-block align-text-bottom">
-            <span class="judul">CodingAhay</span>
+            Coding<span class="half-font">Ahay</span>
         </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
-                <li class="nav-item ms-2">
-                    <a class="nav-link" href="about.php" id="about">About</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav mb-lg-0">
-                <a class="btn btn-outline-success mx-3" href="login.php" role="button">Login</a>
-                <a class="btn btn-outline-primary mx-3" href="daftar.php" role="button">Sign Up</a>
-                <!--<form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>-->
+            <ul class="navbar-nav ms-auto">
+                <a class="btn btn-outline-success mx-3" id="login" href="login.php" role="button">
+                    <i class="bx bx-log-in mx-auto"></i>
+                    Login
+                </a>
+                <a class="btn btn-outline-primary mx-3" id="register" href="daftar.php" role="button">
+                    <i class='bx bx-user-plus'></i>
+                    Sign Up
+                </a>
             </ul>
         </div>
     </div>
 </nav>
-<div class="container mt-5">
+<div class="container form">
     <div class="row">
         <div class="col-sm-4 mx-auto">
             <div class="card bg-dark bg-gradient text-light">

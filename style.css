@@ -77,6 +77,9 @@
     transition: all 0.5s ease;
 }
 
+.form{
+    margin-top: 10em;
+}
 
 @media (min-width: 576px) and (max-width: 992px){
     .carousel-caption h5{
@@ -90,6 +93,16 @@
 
     .navbar-nav a{
         width: 50%;
+    }
+
+    .form h5{
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .card{
+        width: 150%;
+        right: 3em;
     }
 
 }

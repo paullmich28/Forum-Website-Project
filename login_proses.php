@@ -25,7 +25,13 @@ if(substr($email, -10) == '@admin.com'){
         $pwCheck = $pw['user_password'];
 
         if(password_verify($password, $pwCheck)){
-            header("location:login.php?status=success");
+            session_start();
+
+            $_SESSION['user_id'] = $pw['user_id'];
+            $_SESSION['user_status'] = "online";
+
+            header("location:user/index.php");
+            return;
         }else{
             header("location:login.php?status=loginfail");
         }
