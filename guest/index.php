@@ -10,7 +10,7 @@
 <div class="sidebar bg-dark">
     <div class="logo_content">
         <div class="logo text-white">
-            <div class="logo_name">Coding<span class="half-color">Ahay</span></div>
+            <div class="logo_name fw-bold">Coding<span class="half-color">Ahay</span></div>
         </div>
         <i class='bx bx-menu text-white btn'></i>
     </div>
@@ -60,18 +60,54 @@
     </div>
 </div>
 <div class="home_content">
-    <div class="row mt-4">
-        <div class="col-sm-4">
-            <p>
-                <small>CodingAhay adalah sebuah forum dimana para programmer dari seluruh Indonesia berkumpul.<br /><br />
-                    Ayo kita semua belajar bersama di <span><a href="guest/index.php">CodingAhay!</a></span><br /><br />
-                    Ingin menjadi bagian dari kami? <br /><span><a class="btn btn-primary mt-2" href="daftar.php" role="button">Sign Up</a></span><br /><br />
-                    Sudah menjadi bagian dari kami?<br />
-                    <span><a class="btn btn-success mt-2" href="login.php" role="button">Login</a></span>
-                </small>
-            </p>
+<div class="threads">
+    <?php
+    $sqlThread = "SELECT * FROM thread, user, category WHERE thread_user = id AND id_category = thread_category ORDER BY tanggal_thread";
+    $jumlahThread = $db->prepare($sqlThread);
+    $jumlahThread->execute();
+    
+    if($jumlahThread->rowCount() == 0){ ?>
+        <h3>Belum ada thread nih, tambahin yuk!</h3>
+    <?php
+    }else{
+    while($threadShow = $jumlahThread->fetch(PDO::FETCH_ASSOC)){?>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card bg-light bg-gradient">
+                <div class="card-body">
+                    <div class="clearfix">
+                        <span class="pull-left">
+                        <?php 
+                        if($threadShow['user_img'] == ""){
+                            ?>
+                            <img src="../img/default.png" class="mr-1" style="width: 35px;height: 35px;border-radius: 100%">
+                            <?php
+                        }else{
+                            ?>
+                            <img src="../img/<?php echo $threadShow['user_img']; ?>" class="mr-1" style="width: 35px;height: 35px;border-radius: 100%">
+                            <?php
+                        }
+                        ?>
+                        <?php echo $threadShow['user_nama']; ?>
+                        </span>
+                        <br /><small class="mt-1 pull-right text-muted font-italic"><?php echo date('d-m-Y H:i:s',strtotime($threadShow['tanggal_thread'])); ?></small><br />
+                        <small class="mt-1 pull-right text-muted font-italic">Kategori: <?php echo $threadShow['category_name']; ?></small><hr />
+                    </div>
+                    <h4 class="ms-4"><?= $threadShow['judul_thread'] ?></h4><hr />
+                    <div class="mt-2">
+                        <?php echo $threadShow['isi_thread']; ?>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <i class='bx bxs-like like-btn' ></i>
+                    <form action=""></form>
+                </div>
+            </div>
         </div>
+        <?php }
+        } ?>
     </div>
+</div>
 </div>
 <script>
     let btn = document.querySelector(".btn");

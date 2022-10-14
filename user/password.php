@@ -84,64 +84,33 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
             <h2 class="fw-bold headerProfil text-center">Profil</h2><br />
             <div class="card bg-light bg-gradient">
                 <div class="card-body">
-                <?php 
-                if(isset($_GET['status'])){
+                    <a href="profil.php" class="text-dark"><i class='bx bx-edit'></i>Kembali</a>
+                    <?php 
+                    if(isset($_GET['status'])){
                         if($_GET['status'] == "sukses"){
                         ?>
-                        <div class="alert alert-success font-weight-bold text-center">Profil telah diupdate.</div>
+                        <div class="alert alert-success font-weight-bold text-center">Password telah diupdate.</div>
                         <?php
+                        }elseif($_GET['status'] == "gagal"){ ?>
+                        <div class="alert alert-danger font-weight-bold text-center">Password tidak sama!</div>
+                    <?php
+                        }
                     }
-                }
-                ?>
-
-                <?php if($result['user_img'] == ""){ ?>
-                    <img src="../img/default.png" alt="" class="fotoProfilSet">
-                <?php }else{ ?>
-                    <img src="../img/<?= $result['user_img'] ?>" alt="" class="fotoProfilSet">
-                <?php } ?>
-                    <div class="form-group mt-3">
-                        <label class="fw-bold">Nama</label>
-                        <p><?= $result['user_nama'] ?></p>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="fw-bold">Email</label>
-                        <p><?= $result['user_email'] ?></p>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="fw-bold">Jenis Kelamin</label>
-                        <p><?= $result['user_gender'] ?></p>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="fw-bold">Tempat Lahir</label>
-                        <p><?= $result['user_birthplace'] ?></p>
-                    </div>
-                    <div class="form-group mt-3">
-                        <label class="fw-bold">Tanggal Lahir</label>
-                        <p><?= $result['user_birthdate'] ?></p>
-                    </div>
-                    <div class="form-group mt-3">
-                        <a href="password.php" class="btn btn-primary"><i class='bx bx-edit'></i>Ganti Password</a>
-                    </div>
-                    <div class="form-group mt-3">
-                        <a href="profil_edit.php" class="btn btn-primary"><i class='bx bx-edit'></i>Edit Profil</a>
-                    </div>
+                    ?>
+                    <form action="password_proses.php" method="post">
+                        <div class="form-group mt-3">
+                            <label class="fw-bold">Password Baru</label>
+                            <input type="password" name="password"/>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="fw-bold">Konfirmasi Password Baru</label>
+                            <input type="password" name="passwordConfirm"/>
+                        </div>
+                        <input type="submit" value="Ganti Password" class="btn btn-primary mt-4"/>
+                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
-    let btn = document.querySelector(".btn");
-    let sidebar = document.querySelector(".sidebar");
-    let search = document.querySelector(".bx-search");
-
-    btn.onclick = function(){
-        sidebar.classList.toggle("active");
-    }
-
-    search.onclick = function(){
-        sidebar.classList.toggle("active");
-    }
-
-</script>
-<?php include '../src/footer.php' ?>

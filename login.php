@@ -31,6 +31,10 @@
 <div class="container form">
     <div class="row">
         <div class="col-sm-4 mx-auto">
+            <a href="index.php">
+                <i class='bx bx-arrow-back' ></i>
+                Go back
+            </a>
             <div class="card bg-dark bg-gradient text-light">
                 <div class="card-body pt-4 pb-3">
                     <h5 class="text-center bg-success text-light p-3 rounded w-50 mx-auto">Login Page</h5>

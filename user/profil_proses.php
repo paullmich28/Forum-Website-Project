@@ -30,7 +30,7 @@ if($filename_foto!=""){
         $sql = "UPDATE user SET user_img = ? WHERE id = ?"; 
         $hajar_foto = $db->prepare($sql); 
         $updateImg = [$x, $user];
-        $hajar_foto->execute(); 
+        $hajar_foto->execute($updateImg); 
     }
 }
 

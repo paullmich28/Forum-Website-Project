@@ -251,10 +251,52 @@ body{
     width: 20%;
     margin-left: auto;
     margin-right: auto;
-    height: auto;
+    width: 90px;
+    height: 90px;
     border-radius: 100%;
 }
 
 .inputProfil{
     margin-left: 3em;
+}
+
+.formThread{
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.threads{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 78px);
+    top: 85px;
+    margin: 0.7em;
+    transition: all 0.5s ease;
+}
+
+.formThread.active{
+    opacity: 1;
+}
+
+.formThread.active ~ .threads{
+    width: calc(100%-300px);
+    top: 500px; 
+}
+
+.isithread{
+    margin-left: 3em;
+}
+
+.liking{
+    color: rgb(0, 102, 255);
+}
+
+.like-btn{
+    font-size: 20px;
+}
+
+@media (min-width: 576px) and (max-width: 992px){
+    .formThread.active{
+        width: 75%;
+    }
 }

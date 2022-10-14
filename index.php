@@ -1,8 +1,3 @@
-<?php 
-include 'src/isiKartu.php'; 
-include 'img/counter.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,24 +110,54 @@ include 'img/counter.php';
 </section>
 
 <section class="aboutus section-padding bg-info">
-<div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-12 col-12">
-                <div class="about-img">
-                    <img src="ilustrations/ilustrations.svg" alt="ilustrasi" class="img-fluid" data-aos="zoom-in-up" data-aos-duration="1000">
+    <div class="container">
+        <h2 class="text-center" data-aos="fade-down" data-aos-duration="2500">Siapa kita?</h2>
+        <div class="row mt-5">
+            <div class="col-sm">
+                <div class="card" data-aos="fade-down" data-aos-duration="1000">
+                    <div class="card-body">
+                        <img src="ilustrations/biru.webp" alt="" class="w-100 h-auto">
+                        <h4 class="text-center">Paulus Michael Leang</h4>
+                        <div class="d-flex justify-content-center">
+                            <i class='bx bxl-instagram ig'></i>
+                            <p class="mt-1">@paullmich2801</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
-                <div class="about-text">
-                    <h2 data-aos="zoom-in-down" data-aos-duration="1000">Apa itu CodingAhay?</h2>
-                    <p data-aos="zoom-in-up" data-aos-duration="1000">
-                        CodingAhay adalah sebuah forum komunitas
-                        dimana para programmer berkumpul dan
-                        berdiskusi seputar hal percodingan.
-                        Mulai dari yang awam sampai yang profesional,
-                        semua ada disini. Kamu juga bisa belajar lewat
-                        website ini loh!
-                    </p>
+            <div class="col-sm">
+                <div class="card" data-aos="fade-down" data-aos-duration="1500">
+                    <div class="card-body">
+                        <img src="ilustrations/ijo.webp" alt="" class="w-100 h-auto">
+                        <h4 class="text-center">Jonathan Dharma</h4>
+                        <div class="d-flex justify-content-center">
+                            <i class='bx bxl-instagram ig'></i>
+                            <p class="mt-1">@nathan_dharma</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card" data-aos="fade-down" data-aos-duration="2000">
+                    <div class="card-body">
+                        <img src="ilustrations/kuning.webp" alt="" class="w-100 h-auto">
+                        <h4 class="text-center">James Bernard William</h4>
+                        <div class="d-flex justify-content-center">
+                            <i class='bx bxl-instagram ig'></i>
+                            <p class="mt-1">@userrnamebw</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card" data-aos="fade-down" data-aos-duration="2500">
+                    <div class="card-body">
+                        <img src="ilustrations/merah.webp" alt="" class="w-100 h-auto">
+                        <h4 class="text-center">Liusianto</h4>
+                        <div class="d-flex justify-content-center">
+                            <i class='bx bxl-instagram ig'></i>
+                            <p class="mt-1">@liusianto12 <br />(wajib follow ini no debat)</p><hr>
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,6 +190,10 @@ include 'img/counter.php';
             register.classList.remove("mt-2");
         }
     }
+
+    $(window).scroll(function(){
+        $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+    });
 
     window.onload = checkingWindow;
     setInterval(checkingWindow, 500);

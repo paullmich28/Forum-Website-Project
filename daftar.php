@@ -62,8 +62,8 @@
                         </div>
                         <div class="form-group mt-3">
                             <label>Jenis Kelamin</label><br />
-                            <input type="radio" name="user_gender" value="Male" class="form-check-input">Male
-                            <input type="radio" name="user_gender" value="Female" class="form-check-input">Female
+                            <input type="radio" name="user_gender" value="Laki-laki" class="form-check-input">Male<span class="mx-1"></span>
+                            <input type="radio" name="user_gender" value="Perempuan" class="form-check-input">Female
                         </div>
                         <div class="form-group mt-3">
                             <label>Tempat Lahir</label>

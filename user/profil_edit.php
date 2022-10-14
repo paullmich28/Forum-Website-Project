@@ -85,16 +85,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
             <form action="profil_proses.php" method="post" enctype="multipart/form-data">
                 <div class="card bg-light bg-gradient">
                     <div class="card-body">
-                    <?php 
-                    if(isset($_GET['status'])){
-                            if($_GET['status'] == "sukses"){
-                            ?>
-                            <div class="alert alert-success font-weight-bold text-center">Profil telah diupdate.</div>
-                            <?php
-                        }
-                    }
-                    ?>
-
+                    <a href="profil.php">Go Back</a>
                     <?php if($result['user_img'] == ""){ ?>
                         <img src="../img/default.png" alt="" class="fotoProfilSet">
                     <?php }else{ ?>
@@ -112,8 +103,8 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
                             <label>Jenis Kelamin</label>
                             <select name="gender" class="form-control">
                                 <option value=""> - Pilih - </option>
-                                <option <?php if($result['user_gender'] == "Male"){echo "selected='selected'";} ?> value="Laki-laki">Laki-laki</option>
-                                <option <?php if($result['user_gender'] == "Female"){echo "selected='selected'";} ?> value="Perempuan">Perempuan</option>
+                                <option <?php if($result['user_gender'] == "Laki-laki"){echo "selected='selected'";} ?> value="Laki-laki">Laki-laki</option>
+                                <option <?php if($result['user_gender'] == "Perempuan"){echo "selected='selected'";} ?> value="Perempuan">Perempuan</option>
                             </select>
                         </div>
                         <div class="form-group mt-3">
