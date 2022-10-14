@@ -54,8 +54,8 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
         </li>
         <li>
             <a href="profil.php" class="login list active">
-                <i class='bx bx-cog'></i>
-                <span class="links_name">Pengaturan Profil</span>
+                <i class='bx bx-user-circle'></i>
+                <span class="links_name">Profil</span>
             </a>
         </li>
         <li>
@@ -80,64 +80,50 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 </div>
 <div class="home_content mt-4">
     <div class="row">
-        <div class="col-lg-6 inputProfil">
-            <h2 class="fw-bold headerProfil">Pengaturan Profil</h2><br />
-            
-            <form action="profil_proses.php" method="post" enctype="multipart/form-data">
-                <div class="card">
-                    <div class="card-body">
-                    <?php 
-                    if(isset($_GET['status'])){
-                            if($_GET['status'] == "sukses"){
-                            ?>
-                            <div class="alert alert-success font-weight-bold text-center">Profil telah diupdate.</div>
-                            <?php
-                        }
+        <div class="col-lg-4 inputProfil ">
+            <h2 class="fw-bold headerProfil text-center">Profil</h2><br />
+            <div class="card bg-light bg-gradient">
+                <div class="card-body">
+                <?php 
+                if(isset($_GET['status'])){
+                        if($_GET['status'] == "sukses"){
+                        ?>
+                        <div class="alert alert-success font-weight-bold text-center">Profil telah diupdate.</div>
+                        <?php
                     }
-                    ?>
+                }
+                ?>
 
-                    <?php if($result['user_img'] == ""){ ?>
-                        <img src="../img/default.png" alt="" class="fotoProfilSet">
-                    <?php }else{ ?>
-                        <img src=<?= $result['user_img'] ?> alt="" class="fotoProfilSet">
-                    <?php } ?>
-                        <div class="form-group mt-3">
-                            <label>Nama</label>
-                            <input type="text" class="form-control" name="nama" required="required" value="<?php echo $result['user_nama'] ?>">
-                        </div>
-                        <div class="form-group mt-3">
-                            <label>Email</label>
-                            <input type="text" class="form-control" name="email" required="required" value="<?php echo $result['user_email'] ?>">
-                        </div>
-                        <div class="form-group mt-3">
-                            <label>Jenis Kelamin</label>
-                            <select name="gender" class="form-control">
-                                <option value=""> - Pilih - </option>
-                                <option <?php if($result['user_gender'] == "Male"){echo "selected='selected'";} ?> value="Laki-laki">Laki-laki</option>
-                                <option <?php if($result['user_gender'] == "Female"){echo "selected='selected'";} ?> value="Perempuan">Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="form-group mt-3">
-                            <label>Tempat Lahir</label>
-                            <input type="text" class="form-control" name="tempat_lahir" value="<?php echo $result['user_birthplace'] ?>">
-                        </div>
-                        <div class="form-group mt-3">
-                            <label>Tanggal Lahir</label>
-                            <input type="date" class="form-control" name="tanggal_lahir" value="<?php echo $result['user_birthdate'] ?>">
-                        </div>
-                        <div class="form-group mt-3">
-                            <label>Foto Profil <br> <small>Kosongkan jika tidak ingin mengubah foto profil</small></label>
-                            <input type="file" name="foto">
-                        </div>
+                <a href="profil_edit.php" class="text-dark"><i class='bx bx-edit'></i>Edit Profil</a>
+                <?php if($result['user_img'] == ""){ ?>
+                    <img src="../img/default.png" alt="" class="fotoProfilSet">
+                <?php }else{ ?>
+                    <img src=<?= $result['user_img'] ?> alt="" class="fotoProfilSet">
+                <?php } ?>
+                    <div class="form-group mt-3">
+                        <label class="fw-bold">Nama</label>
+                        <p><?= $result['user_nama'] ?></p>
                     </div>
-                    <div class="card-footer">
-                        <input type="submit" class="btn btn-primary btn-sm pull-right" value="Update Profil">
+                    <div class="form-group mt-3">
+                        <label class="fw-bold">Email</label>
+                        <p><?= $result['user_email'] ?></p>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="fw-bold">Jenis Kelamin</label>
+                        <p><?= $result['user_gender'] ?></p>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="fw-bold">Tempat Lahir</label>
+                        <p><?= $result['user_birthplace'] ?></p>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label class="fw-bold">Tanggal Lahir</label>
+                        <p><?= $result['user_birthdate'] ?></p>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-    
 </div>
 <script>
     let btn = document.querySelector(".btn");

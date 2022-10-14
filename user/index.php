@@ -23,7 +23,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 <div class="sidebar bg-dark">
     <div class="logo_content">
         <div class="logo text-white">
-            <div class="logo_name">CodingAhay</div>
+            <div class="logo_name fw-bold title">Coding<span class="half-color">Ahay</span></div>
         </div>
         <i class='bx bx-menu text-white btn'></i>
     </div>
@@ -54,8 +54,8 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
         </li>
         <li>
             <a href="profil.php" class="login list">
-                <i class='bx bx-cog'></i>
-                <span class="links_name">Pengaturan Profil</span>
+                <i class='bx bx-user-circle'></i>
+                <span class="links_name">Profil</span>
             </a>
         </li>
         <li>
@@ -93,6 +93,5 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     search.onclick = function(){
         sidebar.classList.toggle("active");
     }
-
 </script>
 <?php include '../src/footer.php' ?>
