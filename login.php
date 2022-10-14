@@ -82,6 +82,37 @@
         </div>
     </div>
 </div>
+<script>
+    function checkingWindow(){
+        let login = document.querySelector("#login");
+        let register = document.querySelector("#register");
+
+        if(window.innerWidth >= 576 && window.innerWidth <= 992){
+            login.classList.remove("btn-outline-success");
+            login.classList.add("btn-success");
+            login.classList.add("mx-auto");
+            login.classList.add("mt-2");
+
+            register.classList.remove("btn-outline-primary");
+            register.classList.add("btn-primary");
+            register.classList.add("mx-auto");
+            register.classList.add("mt-2");
+        }else{
+            login.classList.add("btn-outline-success");
+            login.classList.remove("btn-success");
+            login.classList.remove("mx-auto");
+            login.classList.remove("mt-2");
+
+            register.classList.add("btn-outline-primary");
+            register.classList.remove("btn-primary");
+            register.classList.remove("mx-auto");
+            register.classList.remove("mt-2");
+        }
+    }
+
+    window.onload = checkingWindow;
+    setInterval(checkingWindow, 500);
+</script>
 <?php
 include 'src/footer.php';
 ?>

@@ -216,7 +216,7 @@ body{
 }
 
 .name{
-    margin-left: 0.4em;
+    margin-left: 0.6em;
 }
 
 .profile i{
@@ -240,4 +240,17 @@ body{
 .sidebar.active ~ .home_content{
     width: calc(100%-300px);
     left: 300px;   
+}
+
+.headerProfil{
+    margin-top: 1em;
+}
+
+.fotoProfilSet{
+    display: block;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    border-radius: 100%;
 }

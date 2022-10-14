@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css?v=<?php echo time(); ?>">
     <title>Home | CodingAhay</title>
 <?php include '../src/header.php'; ?>
 
 <div class="sidebar bg-dark">
     <div class="logo_content">
         <div class="logo text-white">
-            <div class="logo_name">CodingAhay</div>
+            <div class="logo_name">Coding<span class="half-color">Ahay</span></div>
         </div>
         <i class='bx bx-menu text-white btn'></i>
     </div>
@@ -21,7 +20,7 @@
             <input type="text" placeholder="Search . . .">
         </li>
         <li>
-            <a href="#" class="home list">
+            <a href="#" class="home list active">
                 <i class='bx bx-home'></i>
                 <span class="links_name">Home</span>
             </a>
@@ -54,7 +53,7 @@
     <div class="profile_content">
         <div class="profile">
             <div class="profile_detail">
-                <img src="img/default.png" alt="">
+                <img src="../img/default.png" alt="">
                 <span class="name">Guest</span>
             </div>
         </div>

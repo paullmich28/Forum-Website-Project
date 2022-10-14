@@ -27,7 +27,7 @@ if(substr($email, -10) == '@admin.com'){
         if(password_verify($password, $pwCheck)){
             session_start();
 
-            $_SESSION['user_id'] = $pw['user_id'];
+            $_SESSION['user_id'] = $pw['id'];
             $_SESSION['user_status'] = "online";
 
             header("location:user/index.php");

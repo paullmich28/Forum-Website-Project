@@ -138,6 +138,37 @@ include 'img/counter.php';
         </div>
     </div>
 </section>
+<script>
+    function checkingWindow(){
+        let login = document.querySelector("#login");
+        let register = document.querySelector("#register");
+
+        if(window.innerWidth >= 576 && window.innerWidth <= 992){
+            login.classList.remove("btn-outline-success");
+            login.classList.add("btn-success");
+            login.classList.add("mx-auto");
+            login.classList.add("mt-2");
+
+            register.classList.remove("btn-outline-primary");
+            register.classList.add("btn-primary");
+            register.classList.add("mx-auto");
+            register.classList.add("mt-2");
+        }else{
+            login.classList.add("btn-outline-success");
+            login.classList.remove("btn-success");
+            login.classList.remove("mx-auto");
+            login.classList.remove("mt-2");
+
+            register.classList.add("btn-outline-primary");
+            register.classList.remove("btn-primary");
+            register.classList.remove("mx-auto");
+            register.classList.remove("mt-2");
+        }
+    }
+
+    window.onload = checkingWindow;
+    setInterval(checkingWindow, 500);
+</script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
