@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2022 at 06:46 PM
+-- Generation Time: Oct 14, 2022 at 10:54 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -52,10 +52,20 @@ INSERT INTO `category` (`id_category`, `category_name`) VALUES
 
 CREATE TABLE `komentar` (
   `id_komentar` int(11) NOT NULL,
-  `komentar_user` int(11) NOT NULL,
+  `komentar_user_nama` varchar(100) NOT NULL,
   `komentar_thread` int(11) NOT NULL,
-  `isi_komentar` int(11) NOT NULL
+  `isi_komentar` varchar(250) NOT NULL,
+  `tanggal_komentar` datetime NOT NULL,
+  `komentar_img` varchar(100) NOT NULL,
+  `komentar_userid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `komentar`
+--
+
+INSERT INTO `komentar` (`id_komentar`, `komentar_user_nama`, `komentar_thread`, `isi_komentar`, `tanggal_komentar`, `komentar_img`, `komentar_userid`) VALUES
+(2, 'Liu', 5, 'tesss', '2022-10-15 03:49:01', '1453980607_maxresdefault.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -66,7 +76,8 @@ CREATE TABLE `komentar` (
 CREATE TABLE `suka` (
   `id_suka` int(11) NOT NULL,
   `suka_user` int(11) NOT NULL,
-  `suka_thread` int(11) NOT NULL
+  `suka_thread` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -89,7 +100,8 @@ CREATE TABLE `thread` (
 --
 
 INSERT INTO `thread` (`id_thread`, `thread_user`, `judul_thread`, `isi_thread`, `tanggal_thread`, `thread_category`) VALUES
-(5, 3, 'Testing', 'Ahihihi dar', '2022-10-14 20:18:12', 1);
+(5, 3, 'Testing', 'Ahihihi dar', '2022-10-14 20:18:12', 1),
+(7, 2, 'Testing', 'sdasdad', '2022-10-15 02:04:10', 5);
 
 -- --------------------------------------------------------
 
@@ -127,6 +139,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id_category`);
 
 --
+-- Indexes for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD PRIMARY KEY (`id_komentar`);
+
+--
 -- Indexes for table `suka`
 --
 ALTER TABLE `suka`
@@ -156,16 +174,22 @@ ALTER TABLE `category`
   MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `komentar`
+--
+ALTER TABLE `komentar`
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `suka`
 --
 ALTER TABLE `suka`
-  MODIFY `id_suka` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_suka` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `thread`
 --
 ALTER TABLE `thread`
-  MODIFY `id_thread` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_thread` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
