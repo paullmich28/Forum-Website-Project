@@ -2,6 +2,7 @@
 include '../koneksi.php';
 
 session_start();
+date_default_timezone_set('Asia/Jakarta');
 $id = $_SESSION['user_id'];
 if($_SESSION['user_status'] != 'online'){
     session_destroy();
@@ -15,6 +16,29 @@ $online = [$id];
 $stmt->execute($online);
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+if(isset($_POST['action'])){
+    $post_id = $_POST['post_id'];
+    $action = $_POST['action'];
+
+    switch($action){
+        case 'like':
+            $sql = "INSERT INTO suka(suka_user, suka_thread, status)
+                    VALUES({$id}, {$post_id}, '{$action}')
+                    ON DUPLICATE KEY UPDATE status='like'";
+            break;
+
+        case 'unlike':
+            $sql = "DELETE FROM suka WHERE suka_user = {$id} AND suka_thread = {$post_id}";
+            break;
+
+        default:
+            break;
+    }
+
+    $db->query($sql);
+    exit(0);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +48,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <?php include '../src/header.php' ?>
 <div class="sidebar bg-dark">
     <div class="logo_content">
@@ -46,7 +71,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
             </a>
         </li>
         <li>
-            <a href="#" class="category list">
+            <a href="category.php" class="category list">
                 <i class='bx bx-category'></i>
                 <span class="links_name">Categories</span>
             </a>
@@ -132,7 +157,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     while($threadShow = $jumlahThread->fetch(PDO::FETCH_ASSOC)){?>
     <div class="row">
         <div class="col-lg-4">
-            <div class="card bg-light bg-gradient">
+            <div class="card bg-light bg-gradient mt-3">
                 <div class="card-body">
                     <div class="clearfix">
                         <span class="pull-left">
@@ -149,17 +174,82 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
                         ?>
                         <?php echo $threadShow['user_nama']; ?>
                         </span>
+                        <?php
+                        if($id == $threadShow['id']){ ?>
+                            <a href="?id=<?= $threadShow['id_thread'] ?>" class="btn btn-danger dlt">Delete Thread</a>
+                            
+                        <?php 
+                        }
+                        ?>
                         <br /><small class="mt-1 pull-right text-muted font-italic"><?php echo date('d-m-Y H:i:s',strtotime($threadShow['tanggal_thread'])); ?></small><br />
-                        <small class="mt-1 pull-right text-muted font-italic">Kategori: <?php echo $threadShow['category_name']; ?></small><hr />
+                        <small class="mt-1 pull-right text-muted font-italic">Kategori: <?php echo $threadShow['category_name']; ?></small>
+                        
+                        <hr />
                     </div>
+                    
                     <h4 class="ms-4"><?= $threadShow['judul_thread'] ?></h4><hr />
                     <div class="mt-2">
                         <?php echo $threadShow['isi_thread']; ?>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <i class='bx bxs-like like-btn' ></i>
-                    <form action=""></form>
+                    <i class='bx bx-like like-btn' data-id="<?= $threadShow['id_thread']; ?>"></i>
+                    <i class='bx bx-comment btn btn-primary komen'><span>Komentar</span></i>
+                    <div class="row formComment">
+                        <div class="col-lg-10">
+                            <form action="komen_proses.php" method="post">
+                                <div class="form-group mt-3">
+                                    <label class="fw-bold">Tambahkan Komentar</label>
+                                    <input type="hidden" name="idthread" value="<?= $threadShow['id_thread'] ?>">
+                                    <textarea name="isi_komen" cols="30" rows="5" class="form-control" required></textarea>
+                                    <input type="submit" value="Comment" class="btn btn-primary">
+                                </div>
+                            </form>
+                            <?php
+                            $sqlKoment = "SELECT * FROM komentar WHERE komentar_thread = {$threadShow['id_thread']}";
+
+                            $koment = $db->query($sqlKoment);
+                            $koment->execute();
+                                
+                            
+                            if($koment->rowCount() == 0){
+                                echo 'Belum ada komen';
+                            }else{
+                                while($komentVal = $koment->fetch(PDO::FETCH_ASSOC)){ ?>
+                                <div class="clearfix">
+                                    <span class="pull-left">
+                                    <?php 
+                                    if($komentVal['komentar_img'] == ""){
+                                        ?>
+                                        <img src="../img/default.png" class="mr-1" style="width: 35px;height: 35px;border-radius: 100%">
+                                        <?php
+                                    }else{
+                                        ?>
+                                        <img src="../img/<?php echo $komentVal['komentar_img']; ?>" class="mr-1" style="width: 35px;height: 35px;border-radius: 100%">
+                                        <?php
+                                    }
+                                    ?>
+                                    <?php echo $komentVal['komentar_user_nama']; ?>
+                                    </span>
+                                    <?php
+                                    if($id == $komentVal['komentar_userid']){ ?>
+                                        <a href="?id=<?= $komentVal['id_komentar'] ?>" class="btn btn-danger dlt">Delete Thread</a>
+                                        
+                                    <?php 
+                                    }
+                                    ?>
+                                    <br /><small class="mt-1 pull-right text-muted font-italic"><?php echo date('d-m-Y H:i:s',strtotime($komentVal['tanggal_komentar'])); ?></small>
+                                </div>
+                                
+                                <div class="mt-2">
+                                    <?php echo $komentVal['isi_komentar']; ?>
+                                </div>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,17 +257,21 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
         } ?>
     </div>
 </div>
+<?php
+if(isset($_GET['id'])){
+    $sql = "DELETE FROM thread WHERE id_thread = '$_GET[id]'";
+    $db->query($sql);
+
+    echo "<meta http-equiv=refresh content=1;URL='index.php'>";
+}
+?>
+<script type="text/javascript" src="likeDislikeSystem.js"></script>
 <script>
     let btn = document.querySelector(".btn");
     let sidebar = document.querySelector(".sidebar");
     let search = document.querySelector(".bx-search");
     let plus = document.querySelector(".tambahThread");
     let form = document.querySelector(".formThread");
-    let like = document.querySelector(".like-btn");
-
-    like.onclick = function(){
-        like.classList.toggle("liking")
-    }
 
     btn.onclick = function(){
         sidebar.classList.toggle("active");

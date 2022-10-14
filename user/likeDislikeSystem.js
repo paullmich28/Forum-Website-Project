@@ -17,8 +17,7 @@ $(document).ready(function(){
                 'post_id': post_id
             },
             success: function(data){
-                var res = JSON.parse(data);
-
+                res = JSON.parse(JSON.stringify(data));
                 if(action == 'like'){
                     $clicked_btn.removeClass('bx-like');
                     $clicked_btn.addClass('bxs-like');

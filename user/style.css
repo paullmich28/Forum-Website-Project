@@ -8,7 +8,7 @@
 body{
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .sidebar{
@@ -293,6 +293,18 @@ body{
 
 .like-btn{
     font-size: 20px;
+}
+
+.dlt{
+    margin-left: 17em;
+}
+
+.kartus{
+    width: 45%;
+}
+
+.komen{
+    margin-left: 20em;
 }
 
 @media (min-width: 576px) and (max-width: 992px){

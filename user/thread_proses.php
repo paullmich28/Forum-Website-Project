@@ -11,8 +11,8 @@ $judul = $_POST['judul_thread'];
 $isi = $_POST['isi_thread'];
 $category = $_POST['kategori'];
 
-$sql = "INSERT INTO thread(thread_user, judul_thread, isi_thread, tanggal_thread, thread_category)
-VALUES(?, ?, ?, ?, ?)";
+$sql = "INSERT INTO thread(thread_user, judul_thread, isi_thread, tanggal_thread, thread_category, komentar_userid)
+VALUES(?, ?, ?, ?, ?, ?)";
 
 $stmt = $db->prepare($sql);
 $data = [$user, $judul, $isi, $date, $category];
